@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from sqlalchemy.orm import declarative_base
 
-SQLALCHEMY_DATABASE_URI = "mysql+aiomysql://root:123456@localhost:3306/putcm"
+SQLALCHEMY_DATABASE_URI = "mysql+aiomysql://root:123456@192.168.2.140:3306/putcm"
 SQLALCHEMY_ECHO = True  # 打印SQL日志（调试）
 
 # 异步引擎
