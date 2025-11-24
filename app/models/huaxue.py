@@ -161,7 +161,7 @@ class Huaxue(Base):
     @staticmethod
     async def export(db: AsyncSession, tcmId: int) -> Tuple[str, str, io.BytesIO]:
         tcmName = await Tcm.get_tcmName(db, tcmId)
-        subName = "4_化学成分"
+        subName = "5_化学成分"
         query = select(Huaxue).where(Huaxue.tcmId == tcmId)
         res = await db.execute(query)
         records = res.scalars().all()
