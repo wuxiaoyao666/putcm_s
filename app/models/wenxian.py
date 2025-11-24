@@ -120,7 +120,7 @@ class Wenxian(Base):
     @staticmethod
     async def export(db: AsyncSession, tcmId: int) -> Tuple[str, str, io.BytesIO]:
         tcmName = await Tcm.get_tcmName(db, tcmId)
-        subName = "相关文献"  # 你可以自定义这个名字，例如 "8_文献信息"
+        subName = "文献数据"
         query = select(Wenxian).where(Wenxian.tcmId == tcmId)
         res = await db.execute(query)
         records = res.scalars().all()

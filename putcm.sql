@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.44, for Win64 (x86_64)
 --
--- Host: 192.168.2.140    Database: putcm
+-- Host: 47.93.2.246    Database: putcm
 -- ------------------------------------------------------
--- Server version	8.0.42
+-- Server version	8.0.27
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -87,7 +87,7 @@ CREATE TABLE `captcha` (
   `captchaText` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '验证码文本，4位数字',
   `genTime` bigint DEFAULT NULL COMMENT '生成时间秒数，超过5分钟则失效',
   PRIMARY KEY (`captchaId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表002.验证码表';
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表002.验证码表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -159,8 +159,36 @@ DROP TABLE IF EXISTS `kaifa`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `kaifa` (
   `subId` int NOT NULL AUTO_INCREMENT,
+  `tcmId` int DEFAULT NULL COMMENT '中药ID',
+  `t1` text,
+  `t2` text,
+  `t3` text,
+  `t4` text,
+  `t5` text,
+  `t6` text,
+  `t7` text,
+  `t8` text,
+  `t9` text,
+  `t10` text,
+  `t11` text,
+  `t12` text,
+  `t13` text,
+  `t14` text,
+  `t15` text,
+  `t16` text,
+  `t17` text,
+  `t18` text,
+  `t19` text,
+  `t20` text,
+  `t21` text,
+  `t22` text,
+  `t23` text,
+  `t24` text,
+  `userId` int DEFAULT NULL,
+  `insertTime` bigint DEFAULT NULL,
+  `updateTime` bigint DEFAULT NULL,
   PRIMARY KEY (`subId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表112:开发利用';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表112:开发利用';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,6 +197,7 @@ CREATE TABLE `kaifa` (
 
 LOCK TABLES `kaifa` WRITE;
 /*!40000 ALTER TABLE `kaifa` DISABLE KEYS */;
+INSERT INTO `kaifa` VALUES (1,1,'<p>本品为菊科植物红花Carthamus tinctorius L. 的干燥花。夏季花由黄变红时釆摘，阴干或晒干。</p>','<p>红七片</p>','<p>处方药</p>','<p>片剂</p>','<p>红花提取物30%，蔗糖、粘合剂等</p>','<p>0.5g/片</p>','<p>每日一次，一次两片</p>','<p>本品含有乳制品</p>','<p>孕期、哺乳期禁用，XXX人群禁用，患有XXX疾病禁用</p>','<p>常温、通风阴凉处保存</p>','<p>活血化瘀</p>','<p>医院临床人群</p>','<p>已批准上市</p>','<p>国药准字Z20012345</p>','<p>北京大学天然药物实验室</p>','<p>生产可能先对红花药材进行筛选，确保药材的质量和纯度。然后进行粉碎，将红花粉碎成细粉，过一定目数的筛网，如 80 目或 100 目筛。之后可能加入适量的辅料，如淀粉、预胶化淀粉等，与红花粉混合均匀，再通过湿法制粒等方法制成颗粒，颗粒经干燥、整粒后，加入硬脂酸镁等润滑剂混合均匀，最后进行压片操作，制成红七片。压片过程中需控制片重差异、硬度、外观等质量指标。压片完成后，进行包装，包括内包装和外包装，内包装如铝塑包装，外包装如装盒、装箱等。</p>','<p>得率为8.3%</p>','<p>发明专利号：CN123456789A</p>','<p>参考资料为产品说明书</p>','<p>提取物精制后药渣用于饲料、</p>','<p>主要销售于中国及东南亚等地区</p>','<p>年产量为100万盒</p>','<p>暂无公开的用户满意度统计信息</p>','<p>从成本导向来看，需精准核算全产业链成本构成，核心包括原料成本（红花药材的采购价，受产地、品相、炮制工艺影响，如道地红花单价高于普通红花，醋制、酒制等炮制加工会增加成本；若红七片含其他配伍药材，需叠加对应原料成本）、生产加工成本（药材提取、制粒、压片、包衣等工艺费用，以及辅料、能耗、设备折旧）、合规成本（药品 / 保健品的研发、临床验证、审批备案费用，中药制剂还需包含质量检测如有效成分含量测定等费用）及运营成本（包装、仓储、物流、营销推广等），在此基础上叠加合理利润（通常药品利润空间受政策调控，保健品利润相对灵活），形成基础定价底线。</p>',1,1763968264,1763968264);
 /*!40000 ALTER TABLE `kaifa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -310,8 +339,8 @@ DROP TABLE IF EXISTS `userinfo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `userinfo` (
   `userId` int NOT NULL AUTO_INCREMENT,
-  `userName` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `userName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `userRole` int NOT NULL COMMENT '1-管理员，2-普通用户',
   `recentlyView` json DEFAULT NULL COMMENT '中药ID数组',
   `insertTime` bigint DEFAULT NULL,
@@ -328,7 +357,7 @@ CREATE TABLE `userinfo` (
 
 LOCK TABLES `userinfo` WRITE;
 /*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
-INSERT INTO `userinfo` VALUES (1,'admin','admin',1,'[1, 2, 3]',0,0,1763711111,'7397540567816605696');
+INSERT INTO `userinfo` VALUES (1,'admin','admin',1,'[1, 2, 3]',0,0,1763968434,'7398619856888664064');
 /*!40000 ALTER TABLE `userinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -549,4 +578,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-21 15:52:21
+-- Dump completed on 2025-11-24 15:18:10
