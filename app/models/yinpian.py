@@ -81,11 +81,11 @@ class Yinpian(Base):
         items_query = select(Yinpian.subId,
                              sql_build_start(Yinpian.t1, "st1"),
                              sql_build_start(Yinpian.t2, "st2"),
-                             sql_build_start(Yinpian.t3, "st4"),
-                             sql_build_start(Yinpian.t4, "st5"),
+                             sql_build_start(Yinpian.t4, "st4"),
+                             sql_build_start(Yinpian.t5, "st5"),
                              sql_build_start(Yinpian.t6, "st6"),
-                             sql_build_start(Yinpian.t11, "st7"),
-                             sql_build_start(Yinpian.t11, "st8"),
+                             sql_build_start(Yinpian.t7, "st7"),
+                             sql_build_start(Yinpian.t8, "st8"),
                              User.userName.label("updateUser"),
                              Yinpian.updateTime
                              ).outerjoin(User, Yinpian.userId == User.userId)
