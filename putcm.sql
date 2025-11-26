@@ -24,8 +24,29 @@ DROP TABLE IF EXISTS `anquan`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `anquan` (
   `subId` int NOT NULL AUTO_INCREMENT,
+  `tcmId` int DEFAULT NULL,
+  `t1` text,
+  `t2` text,
+  `t3` text,
+  `t4` text,
+  `t5` text,
+  `t6` text,
+  `t7` text,
+  `t8` text,
+  `t9` text,
+  `t10` text,
+  `t11` text,
+  `t12` text,
+  `t13` text,
+  `t14` text,
+  `t15` text,
+  `t16` text,
+  `t17` text,
+  `userId` int DEFAULT NULL,
+  `insertTime` bigint DEFAULT NULL,
+  `updateTime` bigint DEFAULT NULL,
   PRIMARY KEY (`subId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表110:安全性评价 表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表110:安全性评价 表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -34,6 +55,7 @@ CREATE TABLE `anquan` (
 
 LOCK TABLES `anquan` WRITE;
 /*!40000 ALTER TABLE `anquan` DISABLE KEYS */;
+INSERT INTO `anquan` VALUES (1,1,'<p>本品为菊科植物红花Carthamus tinctorius L. 的干燥花。夏季花由黄变红时釆摘，阴干或晒干。</p>','<p>给药成分主要为红花的提取物</p>','<p>毒性实验类型主要为急性毒性实验</p>','<p>暴露途径为灌胃</p>','<p>实验对象为大鼠</p>','<p>给药剂量范围50-50000mg/kg</p>','<p>LD₅₀ = 3600 mg/kg</p>','<p>实验过程中大鼠未出现出现呼吸抑制、肝肾毒性、过敏反应、局部刺激等</p>','<p>小鼠未出现明显毒性，恢复期正常</p>','<p>红花核心活血成分（如红花黄色素、生物碱）过量时，会过度抑制血小板聚集功能（通过阻断血小板膜糖蛋白 GPⅡb/Ⅲa 受体与纤维蛋白原结合）、干扰凝血因子（如降低凝血酶原活性、抑制凝血因子 Ⅶ/Ⅸ），打破 &ldquo;凝血 - 抗凝&rdquo; 平衡，导致出血倾向，表现为皮肤瘀斑、牙龈出血，严重时引发消化道或颅内出血，本质是 &ldquo;治疗性活血作用&rdquo; 因剂量失控转为 &ldquo;毒性出血效应&rdquo;。</p>','<p>Cas号: 78281-02-4</p>','<p>红花在过量、长期使用或个体敏感时产生的毒性，其靶器官和系统具有明确指向性，主要集中在：血液系统（因活血成分过度抑制血小板聚集、干扰凝血因子，打破凝血 - 抗凝平衡，引发出血倾向）、消化系统（挥发油与刺激性生物碱刺激胃肠黏膜、激活炎症通路，导致黏膜损伤及消化功能紊乱）、肝脏（成分代谢中间产物诱发肝细胞氧化应激、损伤线粒体，造成药物性肝损伤）、生殖系统（尤其针对女性，成分兴奋子宫平滑肌致其过度收缩，引发流产或月经紊乱），同时部分人群会因过敏反应累及免疫系统（激活 Ⅰ 型变态反应，出现皮肤及全身过敏症状），这些靶器官和系统的毒性反应多与红花活性成分过量作用、代谢损伤或个体免疫异常相关 。</p>','<p>红花过敏反应在临床中有多种表现记录，患者可能出现皮肤瘙痒、红斑、风团、肿胀等皮肤症状，以及咳嗽、喘息、呼吸急促等呼吸道症状，还可能有恶心、呕吐、腹痛、腹泻等消化系统症状。严重时可导致过敏性休克，出现血压下降、头晕、头痛等全身性症状。例如，有患者口服含红花的中药后出现舌麻、声嘶、气憋、全身皮疹、腹痛腹泻等症状。也有患者使用红花注射液后出现烦躁、出汗、心率加快、血压升高等情况，还有患者在使用红花注射液后短时间内出现急性呼吸困难、颜面口唇紫绀、眼睑高度水肿等过敏性休克症状。</p>','<p>红花的禁忌症主要围绕其 &ldquo;活血通经、散瘀止痛&rdquo; 的核心功效及潜在毒性风险，具体包括：孕妇（因红花能兴奋子宫平滑肌、诱发强烈收缩，易导致流产或子宫损伤）、有出血倾向者（如凝血功能障碍、活动性消化道出血、颅内出血、月经过多且无瘀血阻滞者，避免其活血作用加重出血）、过敏体质者（曾对红花或含红花制剂出现皮疹、哮喘、过敏性休克等过敏反应者禁用）；此外，肝肾功能不全者需慎用（长期或大剂量使用可能加重肝肾代谢负担，诱发药物性损伤），脾胃虚弱、易腹泻者慎用（其挥发油等成分可能刺激胃肠道，加剧不适），同时需避免与抗凝血药（如华法林）、抗血小板药（如阿司匹林）过量联用，以防协同增强出血风险。</p>','<p>红花提取物的推荐安全剂量范围因提取物类型（如红花总黄酮、羟基红花黄色素 A、红花油等）、应用场景（药用、保健用）及给药途径（口服、注射）差异较大，目前尚无统一绝对标准，但基于临床研究与应用规范大致如下：药用口服制剂（如含红花提取物的中成药），以红花药材量换算，成人每日对应提取物的生药等效剂量通常为 3-10g，其中核心活性成分羟基红花黄色素 A 等的每日摄入量多控制在几十至几百毫克；注射用红花提取物（如红花注射液、注射用红花黄色素）需严格遵医嘱，单次剂量多为 50-200mg（以红花黄色素计），且需控制滴速避免不良反应。保健用红花提取物（如红花油胶囊）剂量通常低于药用，每日生药等效剂量多不超过 5g，且需注意避免长期连续服用。同时，该剂量范围需结合个体差异（如肝肾功能、过敏史）调整，孕妇、出血倾向者禁用，儿童、老年人及肝肾功能不全者需在专业指导下使用，避免与抗凝血、抗血小板药物联用导致剂量叠加风险。</p>','<p>红花在临床应用中，因剂量不当、个体敏感或用药方式不合理等，已出现多种不良反应记录，涵盖多系统：消化系统常见恶心、呕吐、腹痛、腹泻，多因红花挥发油及刺激性成分刺激胃肠黏膜所致；血液系统可见皮肤瘀斑、牙龈出血，严重时引发消化道或颅内出血，与过量使用致血小板聚集受抑、凝血功能紊乱相关；肝脏方面，长期或大剂量使用可能导致肝功能异常，表现为 ALT、AST 升高，系成分代谢产物损伤肝细胞；生殖系统（女性为主），孕妇用后易引发流产，非孕期女性可能出现月经紊乱（经量过多、经期延长），与红花兴奋子宫平滑肌有关；过敏反应多样，包括皮肤瘙痒、荨麻疹、过敏性鼻炎，严重时出现过敏性休克，属 Ⅰ 型变态反应；此外，少数人使用红花注射液时还出现头晕、头痛、心悸、发热等全身不适，部分患者因注射速度过快引发静脉刺激症状（如穿刺部位疼痛、红肿）。</p>','<p>红花毒性实验的执行标准主要依据相关的药物研究技术指导原则。急性毒性实验必须执行 &ldquo;药物非临床研究质量管理规范（GLP）&rdquo;，啮齿类动物应符合国家实验动物标准 Ⅱ 级及其以上等级要求，非啮齿类动物应符合国家实验动物标准 Ⅰ 级及其以上等级要求。对于非口服给药途径的红花制剂，如红花注射液等，其刺激性和溶血性实验需遵循《中药、天然药物刺激性和溶血性研究的技术指导原则》，包括血管刺激性、肌肉刺激性、皮肤刺激性、粘膜刺激试验等具体的实验方法、结果观察和评价标准。此外，注射用红花黄色素的生产、检验和放行应符合药品生产质量管理规范（GMP）要求，其生物检查项目如异常毒性、溶血与凝聚等应符合相关规定。</p>',1,1764041568,1764041568);
 /*!40000 ALTER TABLE `anquan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +109,7 @@ CREATE TABLE `captcha` (
   `captchaText` char(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '验证码文本，4位数字',
   `genTime` bigint DEFAULT NULL COMMENT '生成时间秒数，超过5分钟则失效',
   PRIMARY KEY (`captchaId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表002.验证码表';
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表002.验证码表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,8 +232,22 @@ DROP TABLE IF EXISTS `linchuang`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `linchuang` (
   `subId` int NOT NULL AUTO_INCREMENT,
+  `tcmId` int DEFAULT NULL,
+  `t1` text,
+  `t2` text,
+  `t3` text,
+  `t4` text,
+  `t5` text,
+  `t6` text,
+  `t7` text,
+  `t8` text,
+  `t9` text,
+  `t10` text,
+  `userId` int DEFAULT NULL,
+  `insertTime` bigint DEFAULT NULL,
+  `updateTime` bigint DEFAULT NULL,
   PRIMARY KEY (`subId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表111:临床应用';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表111:临床应用';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -220,6 +256,7 @@ CREATE TABLE `linchuang` (
 
 LOCK TABLES `linchuang` WRITE;
 /*!40000 ALTER TABLE `linchuang` DISABLE KEYS */;
+INSERT INTO `linchuang` VALUES (1,1,'<p>本品为豆科植物蒙古黄芪Astragalus membranaceus（Fisch.） Bge.var.mongholicus（Bge.）Hsiao或膜荚黄芪Astragalus membranaceus（Fisch.）Bge.的干燥根。春、秋二季采挖，除去须根和根头，晒干。</p>','<p>黄芪饮片</p>','<p>补气升阳，固表止汗，利水消肿，生津养血，行滞通痹，托毒排脓，敛疮生肌。用于气虚乏力，食少便溏，中气下陷，久泻脱肛，便血崩漏，表虚自汗，气虚水肿，内热消渴，血虚萎黄，半身不遂，痹痛麻木，痈疽难溃，久溃不敛。</p>','<p>《中国药典》记载其用量为9-30g</p>','<p>《本草纲目》草部&middot;黄芪：小便不通。用黄芪二钱，加水二碗，煎成一碗，温服。小儿减半。<br>酒疸黄疾(醉后感寒，身上发赤、黑、黄斑)。用黄芪二两、木兰一两，共研细。每服少许。一天服三次，酒送下。<br>白浊。用盐炒黄芪半两、茯苓一两，共研细。每服一钱。</p>','<p>黄芪颗粒：主要成分为黄芪，具有补气固表、利尿排毒的作用，常用于治疗气短心悸、自汗、体虚浮肿等症状。&nbsp;<br>黄芪建中丸：由黄芪、肉桂、白芍等多种中药组成，具有补气散寒、健胃和中的功效，适用于脾胃虚寒引起的恶寒腹痛、身体虚弱等症状。&nbsp;<br>芪黄通秘软胶囊：含有黄芪、当归、何首乌等成分，具有益气养血、润肠通便的作用，主要用于治疗习惯性便秘。&nbsp;<br>当归补血丸：由黄芪和当归组成，具有补养气血的功效，常用于治疗身体虚弱、气血两亏等症状。&nbsp;<br>参丹散结胶囊：主要成分包括人参、黄芪、白术等，具有益气健脾、理气化痰、活血祛瘀的功效，适用于脾虚痰瘀证引起的气短、胸痛等症状。&nbsp;<br>参芪片：主要由黄芪和党参组成，具有补中益气的功效，调理脾胃，治疗食欲不振、呕吐等。&nbsp;<br>补中益气丸：以黄芪为君药，配伍党参、白术，具有补中益气的功效，适用于脾胃虚弱、内脏下垂等症状。&nbsp;<br>归脾丸：主要成分为黄芪和龙眼，具有益气健脾、养血安神的作用。&nbsp;</p>','<p>探究黄芪建中汤加味治疗乳腺癌术后癌因性疲乏的疗效。方法：采用随机数字表法将2022年1月&mdash;2024年6月我院门诊收治的乳腺癌术后癌因性疲乏患者98例分为试验组和对照组，各49例。对照组予以有氧运动，试验组在对照组基础上加用黄芪建中汤加味治疗，两组均治疗1个月。比较两组临床疗效、中医证候积分、疲乏程度、生存质量、免疫功能。结果：治疗后，试验组总有效率高于对照组（P&lt;0.05）。治疗后，两组中医证候积分、Piper疲乏量表（PFS）评分（行为疲乏、情感疲乏、躯体疲乏、认知疲乏）及CD8+均降低（P&lt;0.05）,且试验组均低于对照组（P&lt;0.05）;两组KPS评分、CD3+、CD4+均升高（P&lt;0.05）,且试验组高于对照组（P&lt;0.05）。结论：黄芪建中汤加味治疗乳腺癌术后癌因性疲乏可提高临床疗效，改善中医证候和疲劳症状，提高机体免疫力，值得推广。</p>','<p>观察加味黄芪六一汤联合卡格列净治疗气阴亏虚型糖尿病肾病的临床疗效。方法：选取湖南中医药大学第二附属医院收治的糖尿病肾病患者60例，采用随机数表法分为两组各30例。对照组予卡格列净片口服，治疗组在对照组基础上予加味黄芪六一汤，疗程为3个月。观察两组临床疗效。结果：治疗组总有效率93.33%，明显高于对照组的73.33%，两组比较差异具有统计学意义（P﹤0.05）。治疗后，治疗组血糖指标、肾功能、24 h尿白蛋白定量、UACR、中医症状积分均明显优于对照组（P﹤0.05）。结论：加味黄芪六一汤联合卡格列净治疗气阴亏虚型糖尿病肾病疗效确切，可明显改善患者的肾功能。</p>','<p>该院于11月13日收治化疗后骨髓抑制患者1例，予注射用黄芪多糖+氯化钠注射液静脉滴注和其他药物治疗，在静滴过程中出现过敏性休克，立即停止静滴。经抗过敏治疗之后好转。本案例提示临床使用注射用黄芪多糖时，医护人员应仔细询问患者过敏史，避免严重不良反应事件的发生。</p>',NULL,1,1763972586,1763972823);
 /*!40000 ALTER TABLE `linchuang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -318,7 +355,7 @@ CREATE TABLE `tmpfile` (
   `fileDesc` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT '文件描述，如：上传页面等',
   `insertTime` bigint DEFAULT NULL COMMENT '上传时间',
   PRIMARY KEY (`tmpFileId` DESC) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表004:临时添加文件表';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表004:临时添加文件表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -348,7 +385,7 @@ CREATE TABLE `userinfo` (
   `lastLoginTime` bigint DEFAULT NULL,
   `authToken` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   PRIMARY KEY (`userId`,`userRole`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表001.用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表001.用户表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -357,7 +394,7 @@ CREATE TABLE `userinfo` (
 
 LOCK TABLES `userinfo` WRITE;
 /*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
-INSERT INTO `userinfo` VALUES (1,'admin','admin',1,'[1, 2, 3]',0,0,1763968434,'7398619856888664064');
+INSERT INTO `userinfo` VALUES (1,'admin','admin',1,'[1, 2, 3]',0,0,1764126083,'7399281085453963264'),(2,'mlz','mlz',1,'[1, 2, 3]',0,2,1764062845,'7399015848993624064'),(3,'wys','wys',1,'[1, 2, 3]',0,0,NULL,NULL);
 /*!40000 ALTER TABLE `userinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -410,8 +447,29 @@ DROP TABLE IF EXISTS `yaoli`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `yaoli` (
   `subId` int NOT NULL AUTO_INCREMENT,
+  `tcmId` int DEFAULT NULL,
+  `t16` text COMMENT '药材',
+  `t1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '药理作用类型',
+  `t2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '药效成分',
+  `t3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '靶点蛋白',
+  `t4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '信号通路',
+  `t5` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '模型类型',
+  `t6` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '实验对象',
+  `t7` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '给药信息',
+  `t8` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '药效指标变化',
+  `t9` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '有效浓度(IC₅₀/EC₅₀等)',
+  `t10` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '毒性/副作用评价',
+  `t11` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '对照组情况',
+  `t12` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '总结结论',
+  `t13` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '文献/数据来源',
+  `t14` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '录入人员',
+  `t15` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '检测人员',
+  `t17` text COMMENT '备注',
+  `userId` int DEFAULT NULL COMMENT '关联表 userinfo',
+  `insertTime` bigint DEFAULT NULL,
+  `updateTime` bigint DEFAULT NULL,
   PRIMARY KEY (`subId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表108:药理作用';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表108:药理作用';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -420,6 +478,7 @@ CREATE TABLE `yaoli` (
 
 LOCK TABLES `yaoli` WRITE;
 /*!40000 ALTER TABLE `yaoli` DISABLE KEYS */;
+INSERT INTO `yaoli` VALUES (1,1,'<p>本品为菊科植物红花Carthamus tinctorius L. 的干燥花。夏季花由黄变红时釆摘，阴干或晒干。</p>','<p>红花的活血作用是其核心药效，具有作用强、范围广且可通过炮制调控的特点：生品红花辛散峻烈，归心、肝经，以红花黄色素 A 等成分为基础，能强力疏通血脉、消散瘀血，针对瘀血实证（如经闭痛经、胸痹心痛）快速起效；经炮制后，炒红花缓和为 &ldquo;和血化瘀&rdquo; 适配体虚兼瘀者，酒制红花借酒增强温通散寒之力适配寒凝血瘀，醋制红花兼顾化瘀止血避免活血太过。其活血作用覆盖全身多系统，可治妇科胞宫瘀血、心脑血管及外周血管瘀滞、外科伤科局部瘀肿，临床还常与补气药（如黄芪）配伍增强 &ldquo;气能行血&rdquo; 之效，与养血药同用防活血伤正，是治疗各类瘀血阻滞病症的关键药，但需注意其活血力强，孕妇、无瘀月经过多者忌用。</p>','<p>本品为红花的水提物</p>','<p>红花活血作用的靶点蛋白涉及血小板功能（如血小板膜糖蛋白 GPⅡb/Ⅲa、P - 选择素）、凝血系统（如凝血因子、抗凝血酶）、血管内皮功能（如血管内皮生长因子受体 VEGFR、一氧化氮合酶 eNOS）及炎症相关蛋白（如肿瘤坏死因子 TNF-&alpha;、白细胞介素 IL-6）等多个通路，通过调控这些蛋白活性改善凝血、舒张血管、减轻炎症，从而实现疏通血脉、消散瘀血的功效 。</p>','<p>红花活血作用主要通过调控PI3K/Akt/eNOS 通路（促进血管内皮 NO 释放、舒张血管）、MAPK 通路（抑制血小板活化聚集、减轻炎症损伤）、NF-&kappa;B 通路（抑制炎症因子释放、改善血管内皮功能）及TGF-&beta;/Smad 通路（调节血管平滑肌增殖、改善血管重构）等信号通路，协同实现改善血液循环、消散瘀血的功效 。</p>','<p>本次实验为动物模型</p>','<p>实验动物为大鼠</p>','<p>&nbsp;给药剂量为i.p. 50mg/kg，每日1次，连续7天</p>','<p>体重减轻，SOD水平下降等</p>','<p>IC₅₀ = 12.5 &mu;M；EC₅₀ = 0.3 mg/mL</p>','<p>在此给药剂量下，未将明显毒性</p>','<p>与阳性药相比没有显著变化</p>','<p>有本研究可知：红花活血作用主要通过调控PI3K/Akt/eNOS 通路（促进血管内皮 NO 释放、舒张血管）、MAPK 通路（抑制血小板活化聚集、减轻炎症损伤）、NF-&kappa;B 通路（抑制炎症因子释放、改善血管内皮功能）及TGF-&beta;/Smad 通路（调节血管平滑肌增殖、改善血管重构）等信号通路，协同实现改善血液循环、消散瘀血的功效 。</p>','<p>[1]《中国药典》2020 年版：记载红花味辛性温，归心、肝经，具有活血通经、散瘀止痛功效，可用于治疗经闭、痛经、恶露不行等多种瘀血阻滞病症。<br>[2]包家旭，王永祥，张娴等。红花中 2 个新倍半萜苷类化合物 [J]. 中草药，2025，56 (1)：9-15. 该研究分离鉴定了红花中的化合物，为阐释红花发挥活血化瘀作用的药效物质提供参考。<br>[3]王力伟，马超美等。羟基红花黄色素通过增强血液循环和毒物排泄，改善体内血栓形成和对乙酰氨基酚引起的毒性损伤 [J]. 植物医学（Phytomedicine），2021. 报道了红花主要成分的抗血瘀活性，为红花药材的进一步开发和利用提供理论和实验依据。<br>[4]刘娟，李建伟，乔玉峰等。红花临床应用研究进展 [J]. 医学研究与教育，2015，32 (3)：91-94. 对红花的临床应用进行了综述，包括在妇科疾病、心脑血管疾病等方面的应用。</p>','<p>张三、李四等</p>','<p>张三、李四等</p>','<p>如实验条件特殊、存在数据矛盾、模型限制性说明等</p>',2,1764063935,1764064469);
 /*!40000 ALTER TABLE `yaoli` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -432,8 +491,34 @@ DROP TABLE IF EXISTS `yaowu`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `yaowu` (
   `subId` int NOT NULL AUTO_INCREMENT,
+  `tcmId` int DEFAULT NULL,
+  `t1` text,
+  `t2` text,
+  `t3` text,
+  `t4` text,
+  `t5` text,
+  `t6` text,
+  `t7` text,
+  `t8` text,
+  `t9` text,
+  `t10` text,
+  `t11` text,
+  `t12` text,
+  `t13` text,
+  `t14` text,
+  `t15` text,
+  `t16` text,
+  `t17` text,
+  `t18` text,
+  `t19` text,
+  `t20` text,
+  `t21` text,
+  `t22` text,
+  `userId` int DEFAULT NULL,
+  `insertTime` bigint DEFAULT NULL,
+  `updateTime` bigint DEFAULT NULL,
   PRIMARY KEY (`subId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表109:药物代谢与药代动力学';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表109:药物代谢与药代动力学';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -442,6 +527,7 @@ CREATE TABLE `yaowu` (
 
 LOCK TABLES `yaowu` WRITE;
 /*!40000 ALTER TABLE `yaowu` DISABLE KEYS */;
+INSERT INTO `yaowu` VALUES (1,1,'<p>本品为菊科植物红花Carthamus tinctorius L. 的干燥花。夏季花由黄变红时釆摘，阴干或晒干。</p>','<p>本次实验给予羟基红花黄色素A</p>','<p>给药途径为灌胃给药</p>','<p>给药剂量为50 mg/kg</p>','<p>研究对象为大鼠</p>','<p>检测对象为Hydroxysafflor Yellow A及其代谢产物</p>','<p>吸收特征为吸收慢</p>','<p>达峰时间为0.5H</p>','<p>峰浓度为152.3(ng/ml)</p>','<p>半衰期为2.1h</p>','<p>曲线下面积（AUC(0-t)）为320.5</p>','<p>曲线下面积（AUC(0-&infin;)）为615.7</p>','<p>表观分布容积为1314.9（L/kg）</p>','<p>平均滞留时间为1.8h</p>','<p>清除率为126.4L/h/kg</p>','<p>生物利用度为15%</p>','<p>主要分布在肝、肾</p>','<p>主要代谢产物及路径为Phase II（葡糖苷化</p>','<p>排泄路径为肝、肾排泄</p>','<p>测定方法为HPLC</p>','<p>数据来源为实验报告</p>','<p>代谢产物未完全鉴定</p>',1,1764063940,1764063940);
 /*!40000 ALTER TABLE `yaowu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,8 +540,26 @@ DROP TABLE IF EXISTS `yinpian`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `yinpian` (
   `subId` int NOT NULL AUTO_INCREMENT,
+  `tcmId` int DEFAULT NULL COMMENT '中药ID',
+  `t1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '药材基源',
+  `t2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '药材产地',
+  `t3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '炮制沿革',
+  `t4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '炮制品种',
+  `t5` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '炮制工艺',
+  `t6` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '饮片性状',
+  `t7` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '成分变化',
+  `t8` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '炮制作用',
+  `t9` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '临床应用',
+  `t10` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '处方应付',
+  `t11` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '贮藏条件',
+  `t12` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '质量标准',
+  `i1` json DEFAULT NULL COMMENT '生品图片（list，{img,title}',
+  `i2` json DEFAULT NULL COMMENT '制品图片（list，{img,title}',
+  `userId` int DEFAULT NULL COMMENT '关联表 userinfo',
+  `insertTime` bigint DEFAULT NULL,
+  `updateTime` bigint DEFAULT NULL,
   PRIMARY KEY (`subId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表107:饮片炮制';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表107:饮片炮制';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -464,6 +568,7 @@ CREATE TABLE `yinpian` (
 
 LOCK TABLES `yinpian` WRITE;
 /*!40000 ALTER TABLE `yinpian` DISABLE KEYS */;
+INSERT INTO `yinpian` VALUES (1,1,'<p>红花的药材基源为菊科植物红花（Carthamus tinctorius L.）的干燥花。</p>','<p>红花在中国东北、华北、西北及山东、浙江、贵州、四川、西藏等地广泛栽培。</p>','<p>红花的炮制沿革是伴随中医药理论发展与临床需求变化而逐步演进、完善的过程，核心始终围绕 &ldquo;洁净药材、调整药性、适配病症&rdquo; 展开，呈现出从简单处理到工艺多样化、从经验操作到理论化规范的清晰脉络。汉代至南北朝为炮制雏形阶段，以基础的净制与干燥为主，如《本草经集注》记载 &ldquo;采得后阴干入药&rdquo;，核心目的是去除杂质、便于贮存，尚未涉及复杂药性调整；唐代开启药性优化探索，《备急千金要方》首次记载 &ldquo;炒令黄&rdquo; 的炒制工艺，通过高温缓和红花活血之峻烈，减少对脾胃的刺激，同时增强化瘀止血效果，标志着炮制从 &ldquo;洁净&rdquo; 向 &ldquo;功效调控&rdquo; 转变；宋代是炮制工艺多样化的关键期，在炒制基础上新增酒制、醋制、炒炭等辅料及特殊炮制法，如《太平惠民和剂局方》&ldquo;酒拌炒&rdquo; 借酒之温通增强活血通络之力，适配寒凝血瘀证，《圣济总录》&ldquo;醋炒&rdquo; 以醋引药入肝、强化化瘀止血，《类编朱氏集验医方》&ldquo;炒炭&rdquo; 使药性从 &ldquo;活血&rdquo; 转为 &ldquo;止血不留瘀&rdquo;，满足瘀血出血证需求；明清时期则实现炮制的规范化与理论化，《炮炙大法》明确 &ldquo;行血用酒拌炒，止血用炒炭&rdquo; 的功效对应逻辑，《修事指南》从药性角度阐释 &ldquo;炒缓辛散之性，炭增止血之力&rdquo;，使不同炮制方法的适用场景与原理更清晰，最终形成了与临床辨证论治紧密结合的红花炮制体系。</p>','<p>红花的炮制品种以生品为基础，依据临床对药性调整的需求，通过不同工艺衍生出炒红花、酒制红花、醋制红花、红花炭等多个规格，各品种在炮制方法、性状、药性功效及适用病症上形成明确差异：生品红花经净制干燥而成，呈红黄色管状花，辛散峻烈，以强效活血通经、散瘀止痛见长，适用于瘀血阻滞重且无出血倾向的实证；炒红花由生品文火炒至色深香逸，辛散之性缓和，侧重和血化瘀，适配瘀轻或体虚不耐峻猛之力的情况；酒制红花（多为酒拌炒）借黄酒温通之性，增强活血通络及引药上行之效，专攻寒凝血瘀所致的上部瘀血与寒滞痛证；醋制红花（醋拌炒）以醋引药入肝，兼具收敛之性，善化瘀止血，适用于肝经瘀血及瘀血兼出血之证；红花炭则经武火炒至存性（外黑内棕），辛散活血力大减，收敛止血作用突出且止血不留瘀，专为瘀血内阻引发的出血证而设。这些炮制品种围绕 &ldquo;调整药性、适配辨证&rdquo; 核心，构建了从 &ldquo;破瘀行血&rdquo; 到 &ldquo;和血化瘀&rdquo; 再到 &ldquo;化瘀止血&rdquo; 的功效梯度，满足不同病症与体质的用药需求 。</p>','<p>红花的炮制工艺以净制为基础，根据临床对药性调整的需求，衍生出多样化且流程规范的炮制技术：首先进行净制预处理，取原药材，去除花萼、杂质等非药用部位，筛选干净后干燥，即得生品红花；在此基础上，若制备炒红花，则取净制后的红花，置于炒制容器内，用文火持续翻炒，至药材表面呈深黄色或微带焦斑、逸出浓郁香气且质地略脆时，取出晾凉；制备酒制红花（主流为酒拌炒）时，先按每 100kg 净红花加 10 - 15kg 黄酒的比例，将黄酒与红花拌匀闷润，待黄酒被完全吸尽后，以文火炒至微黄色，取出晾凉（少数采用酒蒸法，流程为拌匀后隔水蒸制）；制备醋制红花时，按每 100kg 净红花加 10 - 20kg 米醋的比例，将两者拌匀闷润至醋吸尽，再用文火炒至表面微带焦黄色，取出晾凉；制备红花炭则需用武火快速翻炒净红花，至药材表面呈焦黑色、内部为棕褐色（需 &ldquo;存性&rdquo;，避免完全灰化），随即喷淋少量清水熄灭火星，最后取出晾干。整个炮制工艺通过控制火候（文火、武火）、调节辅料（黄酒、米醋）用量及闷润、翻炒、蒸制等关键步骤，精准实现对红花药性的调控，以适配不同临床需求。</p>','<p>红花炮制前后的饮片性状差异，核心体现在颜色、质地、气味等关键特征上，这些变化直接对应其炮制工艺（如炒制、酒制、醋制、炒炭）对药材的影响，具体可通过生品与各炮制品的对比清晰呈现：<br>生品红花饮片呈不规则管状花，长约 1～2cm，表面为红黄色或红色，花冠筒细长，先端 5 裂，裂片呈狭条形，质地轻柔且略带韧性，气微香，味微苦；经炮制后，各品种性状发生显著改变：炒红花饮片颜色较生品加深，呈深黄色或微带焦斑，质地略脆，原有的轻柔感减弱，香气因炒制而更浓郁，苦味中略带涩感；酒制红花（酒炒为主）饮片表面呈黄红色，因黄酒浸润而略带润泽感，气味中除红花本身的香气外，还夹杂着淡淡的酒醇香，质地相较于生品更为绵软；醋制红花饮片表面呈红棕色或棕黄色，带有明显的醋香气味，味微酸且苦，质地因醋的浸润与炒制，介于柔润与微脆之间；红花炭饮片性状变化最为明显，表面呈焦黑色，内部为棕褐色（需 &ldquo;存性&rdquo;，避免完全灰化），质地酥脆易断，原有管状结构多有破损，气微带焦香，味微苦、涩，已无生品的轻柔与鲜丽色泽。</p>','<p>红花炮制前后的成分变化由炮制工艺（加热方式、辅料种类）定向调控，是其药性与功效转变的物质基础：生品保留完整原生成分，以高含量黄酮类（红花黄色素 A 等）、生物碱类及挥发油为核心，支撑其峻猛活血功效；炒红花经文火加热，部分挥发油轻度散失、少量热敏性黄酮苷轻微降解，缓和辛散之性，同时优化水溶性黄酮溶出，侧重和血化瘀；酒制红花借黄酒（乙醇、有机酸）促进脂溶性生物碱、黄酮苷元溶出，加热中挥发油与醇类生成温性酯类，增强温通活血与引药上行之力；醋制红花以米醋（乙酸）使生物碱成盐提升溶出、促进黄酮水解为苷元，兼减弱挥发油辛散，实现引药入肝与化瘀止血；红花炭经武火高温炭化，原有黄酮、生物碱、挥发油大量降解，同时通过美拉德反应等生成高含量鞣质与炭素成分，完成从 &ldquo;活血&rdquo; 到 &ldquo;止血不留瘀&rdquo; 的药性逆转，各炮制工艺通过对成分的 &ldquo;保留、增减、转化、新生&rdquo;，精准适配不同临床需求 。</p>','<p>炮制红花的核心作用是通过净制、炒制、酒制、醋制、炒炭等不同工艺，定向调控其药性、优化功效并拓展适用范围，以适配临床辨证论治需求：一方面，通过炒制减少挥发油缓和辛散峻烈之性、炒炭生成止血成分逆转药性，规避生品活血太过伤正或无法用于出血证的弊端；另一方面，借酒制增强温通活血与引药上行之力、醋制强化肝经靶向作用与化瘀止血效果、炒制平衡活血与和血功效，使红花功效更具靶向性；同时，从生品仅适用于瘀血重的实证，拓展至可针对寒凝血瘀、肝经瘀血、瘀血兼出血等细分证型，兼顾体虚兼瘀人群，实现 &ldquo;减毒增效&rdquo;&ldquo;趋利避害&rdquo;，让红花从单一峻猛活血药转变为适配多样病症与体质的多功能化瘀调理药 。</p>','<p>红花在临床中以 &ldquo;活血化瘀、通经止痛&rdquo; 为核心功效，结合生品、炒品、酒制品、醋制品、炭品等不同炮制品的药性差异，广泛用于多系统瘀血相关病症：妇科中，依瘀之轻重、寒热及是否出血，选生品（实证热证经闭痛经）、酒制（寒凝血瘀痛经）、炒品（体虚兼瘀产后恶露）、炭品（瘀血崩漏）治疗月经病、产后病；心脑血管与外周血管病症方面，用生品（配丹参等治瘀血胸痹心痛）、生品或炒品（配黄芪等治中风气虚血瘀偏瘫）、生品（配当归等治血栓性疾病）改善血脉瘀滞；外科伤科中，生品内服外敷治跌打肿痛，醋制或炭品兼顾化瘀止血疗损伤渗血，生品配清热解毒药治疮疡热毒瘀滞；还可依疼痛部位选酒制（上部瘀血头痛胸痛）、醋制（肝经瘀滞胁痛）治瘀血性疼痛，用生品或炒品治瘀滞性皮肤病。临床应用需紧扣 &ldquo;瘀血&rdquo; 病机，辨证选用炮制品，配伍补气养血药减毒增效，且可内服外用，孕妇、无瘀月经过多者忌用，出血倾向者慎用 。</p>','<p>红花的处方应付遵循 &ldquo;按需调配、对症匹配&rdquo; 原则，以处方书写及临床需求为核心依据：处方写 &ldquo;红花&rdquo;&ldquo;生红花&rdquo; 时，默认调配辛散峻猛、活血力强的生品红花，适配瘀血重且无出血倾向的实证；写 &ldquo;炒红花&rdquo;&ldquo;制红花&rdquo; 则调配药性缓和的炒红花，适用于瘀轻或体虚者；写 &ldquo;酒红花&rdquo;&ldquo;酒炒红花&rdquo; 调配酒制红花，增强温通活血与引药上行之效，针对寒凝血瘀及上部瘀血；写 &ldquo;醋红花&rdquo;&ldquo;醋炒红花&rdquo; 调配醋制红花，强化引药入肝与化瘀止血，适配肝经瘀血及瘀血兼出血；写 &ldquo;红花炭&rdquo;&ldquo;炒红花炭&rdquo; 则调配收敛止血且不留瘀的红花炭，用于瘀血内阻出血证，整体实现药材炮制品种与病症、体质的精准对应 。</p>','<p>红花炮制前后均需置于阴凉、干燥、通风处贮藏，注意防潮、防霉变、防蛀虫，其中生品红花因含挥发油等易挥发成分，还需额外注意避光以减少有效成分散失，各炮制品（炒、酒制、醋制、炭品）亦需密封避免吸潮及气味挥发，确保药效稳定。</p>','<p>《中华人民共和国药典》1995 年版规定了红花的炮制方法，包括取原药材，除去杂质、花萼及花柄，筛去灰屑；取净红花置锅内，用文火炒至略有焦斑时，取出放凉；取净红花置锅内，用武火炒至红褐色，喷淋清水少许，灭尽火星，取出凉透等。现行的《中国药典》对红花的炮制也有相关规定，如拣净杂质，除去茎叶、蒂头，晒干等。此外，《太平圣惠方》《圣济总录》等古籍中也记载了红花的一些炮制方法，如醋红花的炮制方法最早见于《太平圣惠方》。同时，各地的中药炮制规范也可能对红花炮制标准有具体规定，如上海市中药炮制规范 1994 年版就收载了红花的炮制方法。</p>','[{\"img\": \"/api/file/1/7398926222731776000.png\", \"title\": \"1\"}]','[{\"img\": \"/api/file/1/7398926249789231104.png\", \"title\": \"2\"}]',1,1764041486,1764041486);
 /*!40000 ALTER TABLE `yinpian` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -522,8 +627,29 @@ DROP TABLE IF EXISTS `zhiliang`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `zhiliang` (
   `subId` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`subId`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci ROW_FORMAT=DYNAMIC COMMENT='表106:质量分析';
+  `tcmId` int DEFAULT NULL,
+  `t1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '药材',
+  `t2` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '药材编号',
+  `t3` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '检测部位',
+  `t4` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '样品状态',
+  `t5` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '检测标准',
+  `t6` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '鉴别方法',
+  `t7` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '检测目标',
+  `t8` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '测定方法',
+  `t9` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '方法参数详情',
+  `t10` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '标准曲线方程',
+  `t11` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '含量限度',
+  `t12` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '检测结果',
+  `t13` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '判定标准',
+  `t14` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '仪器型号',
+  `t15` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '检测人员',
+  `t16` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci COMMENT '检测机构',
+  `t17` text COMMENT '备注说明',
+  `userId` int DEFAULT NULL COMMENT '关联表 userinfo',
+  `insertTime` bigint DEFAULT NULL,
+  `updateTime` bigint DEFAULT NULL,
+  PRIMARY KEY (`subId`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -532,6 +658,7 @@ CREATE TABLE `zhiliang` (
 
 LOCK TABLES `zhiliang` WRITE;
 /*!40000 ALTER TABLE `zhiliang` DISABLE KEYS */;
+INSERT INTO `zhiliang` VALUES (1,1,'<table style=\"border-collapse: collapse; width: 253.82pt;\" border=\"0\" width=\"423\" cellspacing=\"0\" cellpadding=\"0\"><colgroup><col style=\"width: 253.80pt;\" width=\"423\"> </colgroup>\n<tbody>\n<tr style=\"height: 96.60pt;\">\n<td class=\"et2\" style=\"height: 96.60pt; width: 253.80pt;\" width=\"423\" height=\"161\">本品为菊科植物红花Carthamus tinctorius L. 的干燥花。夏季花由黄变红时釆摘，阴干或晒干。</td>\n</tr>\n</tbody>\n</table>','<table style=\"border-collapse: collapse; width: 253.82pt;\" border=\"0\" width=\"423\" cellspacing=\"0\" cellpadding=\"0\"><colgroup><col style=\"width: 253.80pt;\" width=\"423\"> </colgroup>\n<tbody>\n<tr style=\"height: 24.00pt;\">\n<td class=\"et2\" style=\"height: 24.00pt; width: 253.80pt;\" width=\"423\" height=\"40\">HQ0001、HH0002 等</td>\n</tr>\n</tbody>\n</table>','<p>本品为菊科植物红花Carthamus tinctorius L. 的干燥花。</p>',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'<p>备注</p>',1,1763975343,1763975695);
 /*!40000 ALTER TABLE `zhiliang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -578,4 +705,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-24 15:18:10
+-- Dump completed on 2025-11-26 11:02:56
