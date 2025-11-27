@@ -56,20 +56,6 @@ async def download_template():
         media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
 
-def clean_number(value):
-    """清洗数值字符串"""
-    if value is None:
-        return None
-    if isinstance(value, (int, float)):
-        return value
-    # 使用正则只保留数字和小数点
-    str_val = str(value)
-    # 提取数字部分
-    match = re.search(r'-?\d+(\.\d+)?', str_val)
-    if match:
-        return float(match.group())
-    return None
-
 
 @router.post("/upload", summary="上传Excel导入GIS数据")
 async def upload_excel(
