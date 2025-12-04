@@ -4,8 +4,8 @@ import re
 from typing import Dict
 
 from fastapi import APIRouter, UploadFile, File, Depends
-from openpyxl import  load_workbook
-from sqlalchemy import select
+from openpyxl import load_workbook
+from sqlalchemy import select, tuple_
 from sqlalchemy.ext.asyncio import AsyncSession
 from starlette.responses import FileResponse
 
@@ -36,6 +36,7 @@ HEADER_MAPPING = {
     "采样单位": "collectionUnit",
     "备注": "remarks"
 }
+
 
 @router.get("/template", summary="下载GIS导入模板")
 async def download_template():
@@ -87,56 +88,102 @@ async def upload_excel(
         if "tcmName" not in header_map.values():
             return {"status": 1, "msg": "模板错误：缺少'药材名称'列"}
 
-        # 预加载所有中药名称与ID的映射，避免循环查库
+        # 预加载所有中药名称与ID的映射
         tcm_query = select(Tcm.tcmName, Tcm.tcmId)
         tcm_res = await db.execute(tcm_query)
         tcm_map: Dict[str, int] = {name: tcm_id for name, tcm_id in tcm_res.all()}
 
-        data_to_insert = []
+        # 暂存解析后的行
+        parsed_rows = []
         errors = []
 
-        # 遍历数据行
+        # 1. 解析所有 Excel 行数据
         for row_idx, row in enumerate(rows[1:], start=2):
             row_data = {}
             tcm_name = None
 
-            # 提取该行数据
             for col_idx, value in enumerate(row):
                 if col_idx in header_map:
                     field_name = header_map[col_idx]
-
-                    # 特殊处理字段
                     if field_name == "tcmName":
                         tcm_name = str(value).strip() if value else None
-                        continue
                     else:
                         row_data[field_name] = str(value).strip() if value is not None else None
 
-            # 数据校验
             if not tcm_name:
                 continue
-
             if tcm_name not in tcm_map:
-                errors.append(f"第{row_idx}行：药材'{tcm_name}'不存在，请先在系统中添加该药材")
+                errors.append(f"第{row_idx}行：药材'{tcm_name}'不存在")
                 continue
 
-            # 组装最终数据
             row_data["tcmId"] = tcm_map[tcm_name]
-            data_to_insert.append(row_data)
+
+            # 唯一性判断
+            if not row_data.get('plotNumber') or not row_data.get('sampleNumber'):
+                errors.append(f"第{row_idx}行：样地编号或样品编号缺失，无法处理")
+                continue
+
+            parsed_rows.append(row_data)
 
         if errors:
-            # 如果有错误，返回部分错误信息（限制数量避免太长）
             return {"status": 1, "msg": "导入失败", "errors": errors[:5]}
-
-        if not data_to_insert:
+        if not parsed_rows:
             return {"status": 1, "msg": "没有有效数据可导入"}
 
-        # 批量写入数据库
-        await Gis.bulk_add(db, data_to_insert, curr_user.userId)
+        # 2. Excel 内部去重 key: (plotNumber, sampleNumber) -> value: row_data
+        unique_data_map = {}
+        for row in parsed_rows:
+            key = (row['plotNumber'], row['sampleNumber'])
+            unique_data_map[key] = row
 
-        return {"status": 0, "msg": f"成功导入 {len(data_to_insert)} 条数据"}
+        final_rows = list(unique_data_map.values())
+        keys_to_check = list(unique_data_map.keys())
+
+        # 3. 查询数据库中已存在的记录
+        existing_map = {}  # (plotNumber, sampleNumber) -> subId
+
+        if keys_to_check:
+            stmt = select(Gis.subId, Gis.plotNumber, Gis.sampleNumber).where(
+                tuple_(Gis.plotNumber, Gis.sampleNumber).in_(keys_to_check)
+            )
+            existing_res = await db.execute(stmt)
+            for r in existing_res.all():
+                existing_map[(r.plotNumber, r.sampleNumber)] = r.subId
+
+        # 4. 分流：区分 新增列表 和 更新列表
+        to_insert = []
+        to_update = []
+
+        for row in final_rows:
+            key = (row['plotNumber'], row['sampleNumber'])
+            if key in existing_map:
+                # 存在：添加主键 subId，放入更新列表
+                row['subId'] = existing_map[key]
+                to_update.append(row)
+            else:
+                # 不存在：放入新增列表
+                to_insert.append(row)
+
+        # 5. 执行批量操作
+        if to_insert:
+            await Gis.bulk_add(db, to_insert, curr_user.userId)
+
+        if to_update:
+            await Gis.bulk_update(db, to_update, curr_user.userId)
+
+        msg = []
+        if to_insert:
+            msg.append(f"新增 {len(to_insert)} 条")
+        if to_update:
+            msg.append(f"更新 {len(to_update)} 条")
+        # 提交事务
+        await db.commit()
+
+        return {"status": 0, "msg": "，".join(msg) + " 数据已处理成功"}
 
     except Exception as e:
+        # 回滚
+        await db.rollback()
         import traceback
         traceback.print_exc()
         return {"status": 1, "msg": f"处理文件时发生错误: {str(e)}"}

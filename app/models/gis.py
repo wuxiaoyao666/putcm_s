@@ -1,7 +1,7 @@
 import datetime
 from typing import List, Dict, Any
 
-from sqlalchemy import Column, Integer, String, DECIMAL, Text, BigInteger, insert, select
+from sqlalchemy import Column, Integer, String, DECIMAL, Text, BigInteger, insert, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.database import Base
@@ -57,7 +57,24 @@ class Gis(Base):
 
         stmt = insert(Gis).values(data_list)
         await db.execute(stmt)
-        await db.commit()
+
+    @staticmethod
+    async def bulk_update(db: AsyncSession, data_list: List[Dict[str, Any]], userId: int):
+        """批量更新GIS数据"""
+        if not data_list:
+            return
+
+        now = int(datetime.now().timestamp())
+
+        # 为每条数据注入更新时间和操作人
+        for item in data_list:
+            item['userId'] = userId
+            item['updateTime'] = now
+            # 注意：这里不要覆盖 insertTime
+
+        # 使用 SQLAlchemy 的批量更新语法
+        # data_list 中必须包含主键 'subId'，SQLAlchemy 会自动根据主键生成 WHERE subId = :subId
+        await db.execute(update(Gis), data_list)
 
     @staticmethod
     async def get_list(db: AsyncSession, tcmId: int):
