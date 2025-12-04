@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from typing import List, Dict, Any
 
 from sqlalchemy import Column, Integer, String, DECIMAL, Text, BigInteger, insert, select, update
