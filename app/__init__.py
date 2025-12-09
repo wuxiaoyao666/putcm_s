@@ -1,5 +1,9 @@
+import os
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from starlette.responses import FileResponse
+from starlette.staticfiles import StaticFiles
 
 from app.database import AsyncSessionLocal
 from app.models import User
@@ -33,6 +37,7 @@ logger.info("system start.")
 
 def create_app() -> FastAPI:
     app = FastAPI(debug=True, title="test", docs_url=None, redoc_url=None, lifespan=lifespan)
+
     auto_register_routers(app)
     app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"],
                        allow_headers=["*"])
@@ -62,7 +67,8 @@ def create_app() -> FastAPI:
         # res = await call_next(request)
         # return res
         # 拦截器白名单
-        if request.url.path.startswith("/api") and not request.url.path.startswith("/api/file") and not request.url.path.endswith("/export"):
+        if request.url.path.startswith("/api") and not request.url.path.startswith(
+                "/api/file") and not request.url.path.endswith("/export"):
             if request.url.path in ["/api/user/captcha", "/api/user/login"]:
                 res = await call_next(request)
                 return res
@@ -85,5 +91,27 @@ def create_app() -> FastAPI:
         else:
             res = await call_next(request)
             return res
+
+    dist_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "dist")
+    if os.path.exists(dist_dir):
+        app.mount("/assets", StaticFiles(directory=os.path.join(dist_dir, "assets")), name="assets")
+
+        @app.get("/")
+        async def read_index():
+            return FileResponse(os.path.join(dist_dir, "index.html"))
+
+        @app.get("/{full_path:path}")
+        async def catch_all(full_path: str):
+            if full_path.startswith("api"):
+                return {"status": 404, "msg": "API Endpoint Not Found"}
+
+            file_path = os.path.join(dist_dir, full_path)
+            if os.path.exists(file_path) and os.path.isfile(file_path):
+                return FileResponse(file_path)
+
+            return FileResponse(os.path.join(dist_dir, "index.html"))
+
+    else:
+        print("警告: 未找到 dist 目录，前端页面将无法访问。")
 
     return app
