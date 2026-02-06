@@ -52,12 +52,14 @@ class ImageTitle(BaseModel):
     @staticmethod
     async def tcm_copy_file(field, temp_dir: str, tcmName: str, subName: str, index: int):
         if field and len(field) > 0:
-            j = 1 #同行图片的子索引
+            j = 1
             for sub in field:
                 localPath = sub.get("img")[len("/api/"):]
                 if Path(localPath).exists():
                     ext = Path(localPath).suffix
-                    new_path = os.path.join(temp_dir, f"{tcmName}_{subName}_{index}.{j}_{sub.get('title')}{ext}")
+                    title = sub.get('title') or ""
+                    safe_title = title.replace("/", "_").replace("\\", "_").replace(":", "_")
+                    new_path = os.path.join(temp_dir, f"{tcmName}_{subName}_{index}.{j}_{safe_title}{ext}")
                     async with aiofiles.open(localPath, "rb") as src_file:
                         async with aiofiles.open(new_path, "wb") as dst_file:
                             while True:
